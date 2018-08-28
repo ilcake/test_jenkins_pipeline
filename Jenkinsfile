@@ -1,42 +1,42 @@
 pipeline {
   agent any
   stages {
+    stage('Start') {
+      parallel {
+        stage('Start1') {
+          steps {
+            echo 'Hello!'
+          }
+        }
+        stage('Start2') {
+          steps {
+            echo 'World!'
+          }
+        }
+      }
+    }
     stage('Build') {
       parallel {
-        stage('Build') {
+        stage('Build1') {
           steps {
-            sh 'echo "Hello, World!"'
+            echo 'Building!'
           }
         }
-        stage('') {
-          steps {
-            sh 'echo "Hello, There! too!"'
-          }
-        }
-        stage('') {
-          steps {
-            sh 'echo "Hello!!! Hello!!!"'
-          }
-        }
-      }
-    }
-    stage('Build2') {
-      parallel {
         stage('Build2') {
           steps {
-            sh 'echo "Build2!"'
+            echo '!!'
           }
         }
-        stage('') {
+        stage('Build3') {
           steps {
-            sh 'echo "Build2 !!!"'
+            echo '????'
           }
         }
       }
     }
-    stage('Nap') {
+    stage('Final') {
       steps {
-        sleep 10
+        echo 'Finished!'
       }
     }
   }
